@@ -1,0 +1,87 @@
+@mixin flexbox() {
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -ms-flex: $values;
+  -webkit-flex: $values;
+  flex: $values;
+}
+
+@mixin order($values) {
+  -webkit-box-ordinal-group: $values;
+  -moz-box-ordinal-group: $values;
+  -ms-order: $values;
+  -webkit-order: $values;
+  order: $values;
+}
+
+.lard-container {
+  margin: auto;
+  width: 60em;
+  @include flexbox();
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.lard-container > * {
+  flex: 1 auto;
+}
+
+.lard-container div {
+  @include flexbox();
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.lard-container div div {
+  flex: 1 100%;
+}
+
+.lard-child {
+
+}
+
+.memory {
+  flex: 2 0px;
+  float: left;
+  .header div {
+    display: inline;
+    flex: 1 0px;
+  }
+  .row-header {
+    display: inline;
+    flex: 1 0px;
+  }
+  .data-container {
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+}
+
+.memory {
+  order: 1;
+}
+
+.instruction-log {
+  order: 2;
+}
+
+.assembly-tree {
+  order: 3;
+}
+
+.current-instruction {
+  order: 4;
+}
+
+.code-area {
+  order: 5;
+}
